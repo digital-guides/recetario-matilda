@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recetas de Matilda — Sin Gluten</title>
+  <meta name="description" content="Recetario sin gluten con +288 recetas, acceso inmediato, sin suscripciones." />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#1b1b1b;
+      --muted:#6b7280;
+
+      --cream:#fbf6ef;
+      --cream-2:#fffaf3;
+
+      --brand-brown:#8a4a2a;
+      --brand-brown-2:#7a3f23;
+
+      --accent:#ff2ea1;
+      --accent-2:#ff4bb1;
+
+      --card-border:#f08a52;
+      --shadow: 0 12px 28px rgba(0,0,0,.08);
+
+      --radius:18px;
+      --radius2:14px;
+
+      --max:1100px;
+      --pad:18px;
+
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; height:auto; display:block}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad);}
+    .center{text-align:center}
+    .muted{color:var(--muted)}
+    .section{padding:28px 0}
+    .spacer{height:12px}
+
+    /* =========================
+       HERO
+    ========================= */
+    .hero{padding:26px 0 10px;}
+    .hero h1{
+      font-size:28px;
+      line-height:1.15;
+      margin:0 0 10px;
+      font-weight:900;
+    }
+    .hero .sub{
+      margin:0 auto 14px;
+      max-width:600px;
+      line-height:1.45;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .checklist{
+      display:grid;
+      gap:8px;
+      max-width:620px;
+      margin:0 auto 14px;
+      text-align:left;
+    }
+    .check{display:flex; gap:10px; align-items:flex-start; font-size:14px; line-height:1.35;}
+    .check .icon{
+      width:20px; height:20px; border-radius:8px;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(16,185,129,.14);
+      border:1px solid rgba(16,185,129,.25);
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+    .check svg{width:14px; height:14px; fill:#10b981}
+
+    .cta{display:flex; justify-content:center; margin:14px 0 8px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:14px 18px;
+      border-radius:999px;
+      background:var(--accent);
+      color:#fff;
+      font-weight:900;
+      box-shadow: 0 14px 30px rgba(255,46,161,.22);
+      border:0;
+      cursor:pointer;
+      gap:10px;
+      min-width: 260px;
+      text-align:center;
+      line-height:1.1;
+    }
+    .btn:active{transform:translateY(1px)}
+    .tiny{font-size:12px; color:var(--muted); margin:6px 0 0; line-height:1.35;}
+    .hero-figure{margin:16px auto 0; max-width:560px;}
+    .hero-figure img{border-radius:16px; box-shadow: var(--shadow);}
+
+    /* Desktop: hero en 2 columnas */
+    @media (min-width: 920px){
+      .hero .wrap{
+        display:grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap: 28px;
+        align-items:center;
+        text-align:left;
+      }
+      .hero .checklist{margin-left:0; margin-right:0;}
+      .hero .cta{justify-content:flex-start;}
+      .hero .tiny{text-align:left;}
+      .hero-figure{max-width:none; margin:0;}
+      .hero h1{font-size:36px;}
+      .hero .sub{margin-left:0; margin-right:0;}
+    }
+
+    /* =========================
+       BLOQUE MARRÓN (Matilda)
+    ========================= */
+    .brown{
+      background: linear-gradient(180deg, var(--brand-brown), var(--brand-brown-2));
+      color:#fff;
+      border-radius: 22px;
+      padding:22px 18px;
+      box-shadow: var(--shadow);
+    }
+    .brown h2{margin:0 0 6px; font-size:22px; font-weight:900;}
+    .brown p{margin:0; font-size:14px; line-height:1.55; opacity:.95}
+    .avatar{
+      width:108px; height:108px; border-radius:18px;
+      margin:14px auto 10px;
+      overflow:hidden;
+      box-shadow: 0 10px 22px rgba(0,0,0,.18);
+      border:2px solid rgba(255,255,255,.35);
+      background:#fff;
+    }
+    .brown .bio{margin:0 auto; max-width:720px; font-size:13px; line-height:1.6; opacity:.95}
+
+    /* =========================
+       CARD con borde naranja
+    ========================= */
+    .card{
+      border:2px solid var(--card-border);
+      border-radius: 22px;
+      padding:18px;
+      background:#fff;
+      box-shadow: 0 10px 22px rgba(0,0,0,.05);
+    }
+
+    /* =========================
+       SITUACIONES
+    ========================= */
+    .situ-title{
+      background: var(--brand-brown);
+      color:#fff;
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:900;
+      margin-bottom:12px;
+      font-size:14px;
+    }
+    .situ-list{margin:0; padding:0; list-style:none; display:grid; gap:12px;}
+    .situ-item{
+      display:grid;
+      gap:4px;
+      padding:10px 0;
+      border-bottom:1px solid #f2f2f2;
+    }
+    .situ-item:last-child{border-bottom:0}
+    .situ-item b{font-size:14px}
+    .situ-item span{font-size:13px; color:var(--muted); line-height:1.55}
+
+    /* =========================
+       MOCKUP
+    ========================= */
+    .mockup img{width:100%; border-radius: 18px; box-shadow: var(--shadow);}
+    .big-title{font-size:22px; font-weight:900; margin:0 0 10px; line-height:1.15;}
+    @media (min-width: 920px){
+      .big-title{font-size:26px}
+    }
+
+    /* =========================
+       4 METRIC CARDS
+    ========================= */
+    .grid2{display:grid; gap:12px; grid-template-columns: 1fr 1fr;}
+    @media (max-width: 640px){
+      .grid2{grid-template-columns:1fr;}
+    }
+    .metric{
+      background:#c8742f;
+      color:#fff;
+      border-radius:18px;
+      padding:16px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+    }
+    .metric b{display:block; font-size:16px; margin-bottom:6px}
+    .metric span{display:block; font-size:12px; opacity:.95; line-height:1.45}
+
+    /* =========================
+       GARANTÍA (solo imagen)
+    ========================= */
+    .guarantee-img{
+      margin-top:14px;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 2px solid #d59a67;
+      background:#fff;
+    }
+    .guarantee-img img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    /* =========================
+       BONOS
+    ========================= */
+    .bonos-title{font-size:24px; font-weight:900; margin:0 0 8px;}
+    .timer{
+      width:160px;
+      margin:10px auto 0;
+      padding:10px 14px;
+      border-radius:999px;
+      background: var(--accent);
+      color:#fff;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .bonus-card{
+      border:2px solid var(--card-border);
+      border-radius:22px;
+      background:#fff;
+      padding:16px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.05);
+      margin-top:14px;
+    }
+    .bonus-head{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      justify-content:center;
+      text-align:center;
+      flex-wrap:wrap;
+    }
+    .bonus-head .emoji{font-size:22px; line-height:1; margin-top:2px;}
+    .bonus-head h3{margin:0; font-size:18px; font-weight:900;}
+    .bonus-sub{margin:8px 0 10px; color:var(--accent); font-weight:900; text-align:center; line-height:1.35;}
+    .strike{text-decoration: line-through; color:#9ca3af; font-weight:800; margin-right:8px;}
+    .free{color:var(--accent); font-weight:1000;}
+    .bonus-img{margin-top:12px; border-radius:18px; overflow:hidden; border:1px solid #f1f1f1;}
+    .bonus-img img{width:100%; height:auto;}
+    .bonus-desc{
+      margin-top:14px;
+      font-size:13px;
+      color:#4b5563;
+      line-height:1.65;
+      text-align:center;
+    }
+
+    /* =========================
+       COLLAGE (2 items)
+    ========================= */
+    .gallery{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+      align-items:stretch;
+    }
+    @media (max-width: 720px){
+      .gallery{grid-template-columns: 1fr;}
+    }
+    .gallery img{
+      width:100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius:16px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.06);
+    }
+
+    /* =========================
+       PRICE BOX
+    ========================= */
+    .price-box{
+      background: #f3f0d2;
+      border-radius:22px;
+      padding:18px;
+      margin-top:14px;
+      text-align:center;
+      border:2px solid #e7deb0;
+      box-shadow: 0 10px 22px rgba(0,0,0,.05);
+    }
+    .price-box .before{color:#6b7280; font-size:13px;}
+    .price-box .badge2{
+      display:inline-block;
+      background:#fff;
+      border-radius:999px;
+      padding:6px 10px;
+      font-weight:900;
+      border:1px solid rgba(0,0,0,.08);
+      margin:10px 0 8px;
+    }
+    .price-box .today{font-weight:1000; font-size:30px; margin:4px 0 10px; color: var(--accent);}
+    .note{font-size:12px; color:var(--muted); margin-top:10px; line-height:1.45;}
+
+    /* =========================
+       TESTIMONIOS
+    ========================= */
+    .cream-bg{background: var(--cream); }
+    .testi-title{font-size:26px; font-weight:1000; margin:0 0 14px;}
+    .testi-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin-top: 10px;
+    }
+    @media (min-width: 720px){
+      .testi-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 980px){
+      .testi-grid{ grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .testi-card{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow: 0 10px 22px rgba(0,0,0,.06);
+    }
+    .testi-card .img{aspect-ratio: 16/11; background:#eee; overflow:hidden;}
+    .testi-card .img img{width:100%; height:100%; object-fit:cover;}
+    .testi-card .body{padding:12px 12px 14px;}
+    .testi-card .row{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-bottom:6px;
+      font-weight:900;
+    }
+    .stars{color:#f5b301; font-size:13px; letter-spacing:1px;}
+    .quote{font-size:12px; color:#4b5563; line-height:1.55; margin-top:6px;}
+    .author{font-size:12px; color:#9ca3af; margin-top:8px;}
+
+    /* =========================
+       CTA final
+    ========================= */
+    .cta-block{
+      background: var(--cream);
+      padding: 26px 0;
+      border-top: 1px solid rgba(0,0,0,.06);
+    }
+    .cta-title{
+      font-size:30px;
+      font-weight:1000;
+      line-height:1.08;
+      margin:0 0 14px;
+      color:#5a341f;
+    }
+    .cta-inline{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 8px;
+    }
+    .risk{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:13px;
+      color:#3b3b3b;
+      font-weight:900;
+    }
+    .risk .box{
+      width:16px; height:16px;
+      background:#1db954;
+      border-radius:4px;
+      display:inline-block;
+      position:relative;
+    }
+    .risk .box:after{
+      content:"";
+      position:absolute;
+      left:4px; top:2px;
+      width:6px; height:10px;
+      border-right:2px solid #fff;
+      border-bottom:2px solid #fff;
+      transform: rotate(45deg);
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+    .faq-title{
+      font-size:26px;
+      font-weight:1000;
+      margin:0 0 14px;
+    }
+    details{
+      border:1px solid rgba(0,0,0,.14);
+      border-radius:14px;
+      background: rgba(255,255,255,.75);
+      padding:12px 14px;
+      margin:10px 0;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{margin:10px 0 0; color:#4b5563; line-height:1.65; font-size:13px;}
+
+    /* =========================
+       Barra fucsia oferta
+    ========================= */
+    .pink-strip{
+      background: var(--accent);
+      color:#fff;
+      padding:22px 0;
+      text-align:center;
+    }
+    .pink-strip .small{opacity:.95; font-weight:800;}
+    .pink-strip .old{opacity:.8; text-decoration:line-through; margin-top:6px;}
+    .pink-strip .headline{
+      font-size:22px;
+      font-weight:1000;
+      margin:6px 0 6px;
+      line-height:1.15;
+    }
+    .pink-strip .subline{opacity:.95; font-weight:800;}
+    .pink-strip .timer2{
+      width:160px;
+      margin:14px auto 0;
+      padding:10px 14px;
+      border-radius:999px;
+      background: rgba(0,0,0,.10);
+      border:1px solid rgba(255,255,255,.25);
+      font-weight:1000;
+    }
+
+    footer{
+      padding:18px 0 30px;
+      background:#fff;
+      color:#9ca3af;
+      font-size:12px;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap center">
+      <div>
+        <h1>Basta de privarte del placer del pan.</h1>
+        <p class="sub"><b style="color:var(--accent);">+288 recetas de panes sin gluten</b></p>
+
+        <div class="checklist">
+          <div class="check">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+            </div>
+            <div>Panes que no se desmoronan al cortarlos</div>
+          </div>
+          <div class="check">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+            </div>
+            <div>Recetas optimizadas</div>
+          </div>
+          <div class="check">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+            </div>
+            <div>Funciona aunque ya hayas probado otras recetas y fallado</div>
+          </div>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="https://pay.hotmart.com/H102854811W?checkoutMode=10">
+            Empieza hoy — USD 11.99
+          </a>
+        </div>
+        <p class="tiny">Acceso inmediato • Descarga segura • Pago único</p>
+        <p class="tiny">🔥 Más de 3.000 personas ya lo están usando en Ecuador y LATAM</p>
+      </div>
+
+      <div class="hero-figure">
+        <img src="images/hero-matilda.webp" alt="Chef Matilda con panes" loading="eager" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE MARRÓN -->
+  <section class="section">
+    <div class="wrap">
+      <div class="brown center">
+        <h2>¡Ya no más panes fallidos!</h2>
+        <p>Descubre el método que usan los panaderos profesionales</p>
+
+        <div class="avatar">
+          <img src="images/matilda-avatar.webp" alt="Matilda" loading="lazy" decoding="async">
+        </div>
+
+        <p class="bio">
+          Soy Matilda Caselli, panadera apasionada y creadora de este recetario interactivo.
+          Durante años busqué el pan perfecto sin gluten… y fracasé cientos de veces.
+          Hasta que logré desarrollar recetas que combinan sabor, textura y simplicidad.
+          Este recetario reúne todas esas pruebas y aciertos para que tú solo disfrutes el aroma del pan recién hecho.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITUACIONES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="card">
+        <div class="situ-title">Si has vivido alguna de estas situaciones…</div>
+        <ul class="situ-list">
+          <li class="situ-item">
+            <b>¿Tu pan siempre queda apelmazado o crudo?</b>
+            <span>Sigues recetas de internet pero el resultado es cualquier cosa menos pan comestible.</span>
+          </li>
+          <li class="situ-item">
+            <b>¿Gastas una fortuna en ingredientes que después tiras?</b>
+            <span>Las harinas sin gluten son caras y cada receta fallida duele en el bolsillo.</span>
+          </li>
+          <li class="situ-item">
+            <b>¿No sabes qué harinas mezclar ni en qué proporción?</b>
+            <span>La masa se desarma, no tiene elasticidad y no entiendes por qué no funciona.</span>
+          </li>
+          <li class="situ-item">
+            <b>¿Tu familia nota que “tiene gusto a dieta”?</b>
+            <span>Quieres que todos disfruten igual, pero el sabor no es como el pan “de verdad”.</span>
+          </li>
+          <li class="situ-item">
+            <b>¿Vives con miedo a la contaminación cruzada?</b>
+            <span>No confías en las panaderías y necesitas control total sobre lo que consumes.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOCKUP APP -->
+  <section class="section">
+    <div class="wrap center">
+      <h2 class="big-title">FUNCIONA COMO APP / SIN SUSCRIPCIONES<br/>ACCESO EN TU CELULAR O LAPTOP</h2>
+      <div class="mockup">
+        <img src="images/mockup-app.webp" alt="Funciona como app" loading="lazy" decoding="async">
+      </div>
+      <div class="spacer"></div>
+      <h2 class="big-title">ENCUENTRA RÁPIDO LA RECETA<br/>BUSCANDO POR PALABRAS</h2>
+    </div>
+  </section>
+
+  <!-- 4 CARDS + GARANTÍA (imagen) -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid2">
+        <div class="metric">
+          <b>✅ 288 recetas probadas y aprobadas</b>
+          <span>Cada receta fue testeada más de 50 veces hasta lograr la perfección.</span>
+        </div>
+        <div class="metric">
+          <b>⚖️ Proporciones exactas de harinas mix</b>
+          <span>Combinaciones que dan estructura y elasticidad perfecta.</span>
+        </div>
+        <div class="metric">
+          <b>🌡️ Temperaturas y tiempos precisos</b>
+          <span>Fermentación, horneado y enfriado paso a paso para no fallar.</span>
+        </div>
+        <div class="metric">
+          <b>🛡️ 100% libre de contaminación cruzada</b>
+          <span>Técnicas claras para mantener tu cocina segura.</span>
+        </div>
+      </div>
+
+      <!-- Garantía (tu imagen, que incluye sello + texto) -->
+      <div class="guarantee-img">
+        <img src="images/garantia_7%20Dias.webp" alt="Garantía 7 días" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- BONOS -->
+  <section class="section">
+    <div class="wrap center">
+      <h2 class="bonos-title">🎁 + BONOS EXCLUSIVOS INCLUIDOS</h2>
+      <p class="muted">Si compras ahora tendrás acceso a los siguientes recetarios adicionales:</p>
+      <div class="timer">⏱️ 00:00</div>
+
+      <!-- BONO 1 -->
+      <div class="bonus-card">
+        <div class="bonus-head">
+          <div class="emoji">🍕</div>
+          <div>
+            <h3>BONO 1 — Recetario de Pizzas Sin Gluten</h3>
+            <div class="bonus-sub">"10 Pizzas Sin Gluten que No Extrañarás las Tradicionales"</div>
+            <div class="bonus-sub"><span class="strike">$8.99</span> <span class="free">AHORA GRATIS 🎁</span></div>
+          </div>
+        </div>
+        <div class="bonus-img">
+          <img src="images/BONO%201%20-%20pizzas.webp" alt="Bono 1 Pizzas" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <!-- BONO 2 -->
+      <div class="bonus-card">
+        <div class="bonus-head">
+          <div class="emoji">🥟</div>
+          <div>
+            <h3>BONO 2 — Empanadas y Tartas Sin Gluten</h3>
+            <div class="bonus-sub">"Empanadas y Tartas que Enamoran — Sin Gluten, Sin Complicaciones"</div>
+            <div class="bonus-sub"><span class="strike">$7.99</span> <span class="free">AHORA GRATIS 🎁</span></div>
+          </div>
+        </div>
+        <div class="bonus-img">
+          <img src="images/BONO%202%20-%20empanadas.webp" alt="Bono 2 Empanadas y Tartas" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <!-- BONO 3 -->
+      <div class="bonus-card">
+        <div class="bonus-head">
+          <div class="emoji">🌾</div>
+          <div>
+            <h3>BONO 3 — Tabla de Sustitución de Harinas y Aglutinantes</h3>
+            <div class="bonus-sub">"La Tabla Dorada de las Harinas Sin Gluten"</div>
+            <div class="bonus-sub"><span class="strike">$7.99</span> <span class="free">AHORA GRATIS 🎁</span></div>
+          </div>
+        </div>
+        <div class="bonus-img">
+          <img src="images/BONO%203%20-%20tabla.webp" alt="Bono 3 Tabla de harinas" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <!-- BONO 4 -->
+      <div class="bonus-card">
+        <div class="bonus-head">
+          <div class="emoji">🍦</div>
+          <div>
+            <h3>BONO 4 — Recetario de Helados Sin Azúcar, Sin Gluten y Sin Lactosa</h3>
+            <div class="bonus-sub">"10 Helados Clásicos que Sí Puedes Disfrutar Sin Culpa"</div>
+            <div class="bonus-sub"><span class="strike">$7.99</span> <span class="free">AHORA GRATIS 🎁</span></div>
+          </div>
+        </div>
+        <div class="bonus-img">
+          <img src="images/bono%204-helados.webp" alt="Bono 4 Helados" loading="lazy" decoding="async">
+        </div>
+
+        <div class="bonus-desc">
+          Aprende a preparar helados caseros cremosos y refrescantes sin azúcar refinada,
+          sin lácteos y sin gluten, usando ingredientes simples y técnicas fáciles, sin máquina de helados.
+          <br><br>
+          🍨 Helado clásico de vainilla (cremoso, sin lácteos) • 💧 Helado de vainilla al agua (liviano y refrescante) • 🍌 Helado cremoso de banana y vainilla • 🍫 Helado de chocolate intenso sin lácteos • 🍓 Helado de frutilla natural tipo sorbete • 🍋 Helado de limón al agua • 🥥 Helado de coco y vainilla • 🥭 Helado de mango natural • 🥜 Helado de mantequilla de maní y cacao • 🫐 Helado de frutos rojos mixtos
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="https://pay.hotmart.com/H102854811W?checkoutMode=10">Obtener Recetario</a>
+      </div>
+      <p class="tiny">Acceso inmediato desde tu celular</p>
+    </div>
+  </section>
+
+  <!-- LOGRARÁS + COLLAGE (solo 2) + PRECIO -->
+  <section class="section">
+    <div class="wrap center">
+      <h2 class="big-title">Lo que lograrás luego de adquirir el recetario de Matilda</h2>
+
+      <div class="gallery">
+        <img src="images/collage%201.webp" alt="Collage 1" loading="lazy" decoding="async">
+        <img src="images/collage%202.webp" alt="Collage 2" loading="lazy" decoding="async">
+      </div>
+
+      <div class="price-box">
+        <div class="before">Antes $29.90</div>
+        <div class="badge2">💥 HOY SOLO</div>
+        <div class="today">USD 11.99</div>
+        <div class="cta">
+          <a class="btn" href="https://pay.hotmart.com/H102854811W?checkoutMode=10">
+            Empieza hoy — USD 11.99
+          </a>
+        </div>
+        <div class="note">Pago seguro por Hotmart • Acceso inmediato • Sin suscripciones</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS + FAQ -->
+  <section class="section cream-bg">
+    <div class="wrap center">
+      <h2 class="testi-title">Siguiendo mis recetas…</h2>
+
+      <div class="testi-grid">
+
+        <div class="testi-card">
+          <div class="img"><img src="images/testi-pizza.jpg" alt="Pizza" loading="lazy" decoding="async"></div>
+          <div class="body">
+            <div class="row">
+              <div>🍕 Pizza</div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">“Quedó firme, se pudo estirar bien y no se rompió. La pizza salió crocante por fuera y tierna por dentro; nadie notó que era sin gluten.”</div>
+            <div class="author">— Laura</div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="img"><img src="images/testi-pan%20de%20molde.jpg" alt="Pan de molde" loading="lazy" decoding="async"></div>
+          <div class="body">
+            <div class="row">
+              <div>🍞 Pan de molde</div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">“Es la primera vez que logro un pan sin gluten que se puede cortar bien en rebanadas. Lo congelé para tenerlo a mano.”</div>
+            <div class="author">— Ana</div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="img"><img src="images/testi-budin%20chips.jpg" alt="Budines con chips de chocolate" loading="lazy" decoding="async"></div>
+          <div class="body">
+            <div class="row">
+              <div>🧁 Budines con chips de chocolate</div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">“¡Me salió increíble! Seguí los pasos tal cual y no tuve que improvisar nada.”</div>
+            <div class="author">— Mariela</div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="img"><img src="images/testi-savarin.jpg" alt="Budín tipo savarín" loading="lazy" decoding="async"></div>
+          <div class="body">
+            <div class="row">
+              <div>🍩 Budín tipo savarín</div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">“Me sorprendió la textura. Pensé que iba a quedar seco y salió esponjoso; se lo comieron los glotones de la casa.”</div>
+            <div class="author">— Jenny</div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="img"><img src="images/testi-budin%20frutas.jpg" alt="Budín con frutas" loading="lazy" decoding="async"></div>
+          <div class="body">
+            <div class="row">
+              <div>🍰 Budín con frutas</div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">“Me salió buenísimo. Le agregué frutas porque aquí les gusta bastante. ¡Bien! Con ganas de probar más y más.”</div>
+            <div class="author">— Verónica</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="spacer"></div>
+      <h2 class="faq-title">📋 Preguntas Frecuentes</h2>
+
+      <div style="max-width:860px; margin:0 auto; text-align:left;">
+        <details>
+          <summary>💬 ¿Qué incluye exactamente el recetario?</summary>
+          <p>Incluye el recetario principal sin gluten y los bonos indicados en esta página. El acceso es digital.</p>
+        </details>
+
+        <details>
+          <summary>📲 ¿Cómo accedo al recetario después de comprar?</summary>
+          <p>Luego del pago, Hotmart te envía un correo con tu acceso. Entras desde celular o computadora.</p>
+        </details>
+
+        <details>
+          <summary>📦 ¿Necesito esperar a que llegue algo físico?</summary>
+          <p>No. Es 100% digital y el acceso es inmediato.</p>
+        </details>
+
+        <details>
+          <summary>🌿 ¿Necesito tener experiencia cocinando panes?</summary>
+          <p>No. Las recetas están explicadas paso a paso, pensadas para principiantes y también para quienes ya intentaron y fallaron.</p>
+        </details>
+
+        <details>
+          <summary>🧑‍🍳 ¿Puedo hacer las recetas aunque no tenga amasadora o máquina de pan?</summary>
+          <p>Sí. Muchas recetas están pensadas para hacer a mano. Si alguna receta requiere herramienta opcional, se puede adaptar.</p>
+        </details>
+
+        <details>
+          <summary>🌍 ¿Desde qué país puedo comprar?</summary>
+          <p>Desde Ecuador y cualquier país de LATAM (y otros). Hotmart procesa pagos internacionales.</p>
+        </details>
+
+        <details>
+          <summary>🧡 ¿El acceso tiene vencimiento?</summary>
+          <p>En general no. Mantienes el acceso según las políticas de la plataforma donde se entrega el producto (Hotmart).</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-block">
+    <div class="wrap center">
+      <h2 class="cta-title">¡No esperes más! Transforma tu alimentación HOY</h2>
+
+      <div class="cta-inline">
+        <a class="btn" href="https://pay.hotmart.com/H102854811W?checkoutMode=10">
+          OBTENER MI RECETARIO AHORA
+        </a>
+        <div class="risk">
+          <span class="box" aria-hidden="true"></span>
+          <span>Cero riesgos<br><span style="font-weight:700; color:#6b7280;">Hotmart garantiza tu compra</span></span>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <!-- Repetimos la garantía visual (como en tu landing) -->
+      <div class="guarantee-img" style="max-width:980px; margin-left:auto; margin-right:auto;">
+        <img src="images/garantia_7%20Dias.webp" alt="Garantía 7 días" loading="lazy" decoding="async">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BARRA OFERTA FUCSIA -->
+  <section class="pink-strip">
+    <div class="wrap">
+      <div class="small">¡SOLO POR HOY!</div>
+      <div class="old">Antes $36.99</div>
+      <div class="headline">🎁 Todo esto + Los 4 Bonos por <span style="white-space:nowrap;">SOLO $11.99</span></div>
+      <div class="subline">¡Esta oferta expira pronto!</div>
+      <div class="timer2">⏱️ 00:00</div>
+
+      <div class="cta" style="margin-top:14px;">
+        <a class="btn" style="background:#fff; color:var(--accent); box-shadow:none;" href="https://pay.hotmart.com/H102854811W?checkoutMode=10">
+          Sí, quiero mi recetario
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      Aviso: el pago se procesa de forma segura en Hotmart. Acceso digital e inmediato.
+    </div>
+  </footer>
+
+</body>
+</html>
